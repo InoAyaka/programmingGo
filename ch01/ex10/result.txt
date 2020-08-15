@@ -1,0 +1,6 @@
+0.31s   13159 https://www.google.com
+0.44s   10830 https://pkg.go.dev/
+0.31s   13114 https://www.google.com
+0.47s   10830 https://pkg.go.dev/
+181.36s 163253386 https://cve.mitre.org/data/downloads/allitems.html
+125.72s 163253386 https://cve.mitre.org/data/downloads/allitems.html
