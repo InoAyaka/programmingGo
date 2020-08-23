@@ -21,7 +21,7 @@ func comma(s string) string {
 
 	buf.WriteString(s[:lead])
 
-	for i := lead; i < len(s)-lead; i = i + 3 {
+	for i := lead; i < len(s); i = i + 3 {
 		buf.WriteString("," + s[i:i+3])
 	}
 
@@ -32,5 +32,6 @@ func main() {
 	fmt.Println(comma(""))
 	fmt.Println(comma("1"))
 	fmt.Println(comma("123"))
+	fmt.Println(comma("123456789"))
 	fmt.Println(comma("1234567"))
 }
