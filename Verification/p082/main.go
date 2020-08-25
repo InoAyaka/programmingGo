@@ -22,7 +22,9 @@ func main() {
 	fmt.Printf("%[1]s %[1]p\n", s2)
 
 	b[2] = 'd'
-	b[1] = byte("d")
+	//どちらもコンパイルエラーになる
+	//b[1] = byte("d")
+	//b[1] = []byte("d")
 
 	fmt.Printf("%[1]s %[1]p\n", s)
 	fmt.Printf("%[1]s %[1]p\n", b)
