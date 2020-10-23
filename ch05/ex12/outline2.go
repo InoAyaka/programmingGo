@@ -25,23 +25,21 @@ func main() {
 		fmt.Fprintf(os.Stderr, "parsing error : %v\n", err)
 	}
 
-	forEachNode(doc, startElement, endElement)
-}
+	var depth int
 
-var depth int
-
-func startElement(n *html.Node) {
-	if n.Type == html.ElementNode {
-		fmt.Printf("%*s<%s>\n", depth*2, "", n.Data)
-		depth++
-	}
-}
-
-func endElement(n *html.Node) {
-	if n.Type == html.ElementNode {
-		depth--
-		fmt.Printf("%*s</%s>\n", depth*2, "", n.Data)
-	}
+	forEachNode(doc,
+		func(n *html.Node) {
+			if n.Type == html.ElementNode {
+				fmt.Printf("%*s<%s>\n", depth*2, "", n.Data)
+				depth++
+			}
+		},
+		func(n *html.Node) {
+			if n.Type == html.ElementNode {
+				depth--
+				fmt.Printf("%*s</%s>\n", depth*2, "", n.Data)
+			}
+		})
 }
 
 func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
