@@ -37,13 +37,14 @@ func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
 		pre(n)
 	}
 
+	for c := n.FirstChild; c != nil; c = c.NextSibling {
+		forEachNode(c, pre, post)
+	}
+
 	/*
-		for c := n.FirstChild; c != nil; c = n.NextSibling {
-			forEachNode(c, pre, post)
-		}
+		forEachNode(n.FirstChild, pre, post)
+		forEachNode(n.NextSibling, pre, post)
 	*/
-	forEachNode(n.FirstChild, pre, post)
-	forEachNode(n.NextSibling, pre, post)
 
 	if post != nil {
 		post(n)
